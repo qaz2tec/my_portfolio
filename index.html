@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhruv Sharma | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Sticky Header */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #38bdf8;
+    }
+
+    .logo span {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #38bdf8;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a {
+      margin: 0 1rem;
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* Header Section */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3rem 2rem;
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro {
+      flex: 1;
+      min-width: 280px;
+      animation: slideInLeft 1.2s ease;
+    }
+
+    @keyframes slideInLeft {
+      from { transform: translateX(-40px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Typing Effect Styling */
+.typing-container {
+  height: 60px; /* keeps layout stable */
+  display: flex;
+  align-items: center;
+}
+
+.typing {
+  font-size: 2.8rem;
+  color: #38bdf8;
+  min-width: 320px; /* prevents shaking */
+}
+
+/* Cursor is now on span so it moves with text */
+.typing span {
+  border-right: 3px solid #38bdf8;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+    .intro p {
+      margin: 1rem 0;
+      max-width: 500px;
+      font-size: 1.1rem;
+    }
+
+    .intro button {
+      background-color: #38bdf8;
+      border: none;
+      color: #0f172a;
+      padding: 0.7rem 1.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .intro button:hover {
+      background-color: #0ea5e9;
+      transform: scale(1.05);
+    }
+
+    .photo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideInRight 1.2s ease;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(40px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .photo img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 20px #38bdf8;
+      transition: transform 0.3s ease;
+    }
+
+    .photo img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .projects h2 {
+      font-size: 2rem;
+      color: #38bdf8;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      scroll-behavior: smooth;
+      padding-bottom: 1rem;
+    }
+
+    .project {
+      min-width: 280px;
+      background-color: #1e293b;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      flex-shrink: 0;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .project h3 {
+      color: #38bdf8;
+      margin-bottom: 0.5rem;
+    }
+
+    .project p {
+      margin-bottom: 0.8rem;
+    }
+
+    .project a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* About Section */
+    .about {
+      padding: 3rem 2rem;
+      background-color: #1e293b;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      color: #38bdf8;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      animation: fadeIn 1s ease-in;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      color: #38bdf8;
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      margin-bottom: 1rem;
+    }
+
+    .contact a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .contact a:hover {
+      color: #0ea5e9;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1e293b;
+      text-align: center;
+      padding: 1.5rem;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      border-top: 1px solid #334155;
+    }
+
+    footer span {
+      color: #38bdf8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .photo img {
+        width: 180px;
+        height: 180px;
+      }
+
+      .typing {
+        font-size: 2rem;
+        min-width: 220px;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation -->
+  <nav>
+    <div class="logo">
+      <img src="mypic_Dhruv.png" alt="Dhruv Logo">
+      <span>DS</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#mywork">My Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home">
+    <div class="intro">
+    <div class="typing-container">
+        <h1 class="typing"><span id="typing-text"></span></h1>
+    </div>
+      <p>I'm a backend developer focused on building scalable and efficient systems using Go, Node.js, and distributed architectures.</p>
+      <button onclick="document.querySelector('.projects').scrollIntoView({behavior: 'smooth'})">View My Work</button>
+    </div>
+    <div class="photo">
+      <img src="mypic_Dhruv.png" alt="Dhruv Sharma">
+    </div>
+  </header>
+
+  <!-- Projects Section -->
+  <section class="projects" id="mywork">
+    <h2>My Projects</h2>
+    <div class="project-slider">
+      <div class="project">
+        <h3>P2P File Sharing App</h3>
+        <p>Secure and fast peer-to-peer file sharing using Node.js, WebRTC, and React.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project">
+        <h3>Distributed File System</h3>
+        <p>Scalable and fault-tolerant distributed file storage built in Go.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project">
+        <h3>Real-time Ticket Booking</h3>
+        <p>Concurrency-driven backend with queueing and load handling for high-traffic systems.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a backend developer passionate about building distributed, scalable, and high-performance systems.
+      I specialize in Go and Node.js, enjoy optimizing performance, containerizing apps with Docker,
+      and exploring system design and networking concepts.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="#">dhruv@example.com</a></p>
+    <p>LinkedIn: <a href="#">linkedin.com/in/dhruvsharma</a></p>
+    <p>GitHub: <a href="#">github.com/dhruvsharma</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      This website is fully responsive, but for the best experience, please open it in <span>desktop mode</span> if you're on a phone.  
+      Apologies for any inconvenience — I'm a backend developer, not a frontend magician (yet)!
+    </p>
+  </footer>
+
+  <!-- Typing Effect Script -->
+  <script>
+    const texts = ["Hi, I'm Dhruv Sharma", "I'm a Software Dev"];
+    const typingElement = document.getElementById("typing-text");
+    let textIndex = 0;
+
+    function typeWriter(text, callback) {
+      typingElement.textContent = "";
+      let i = 0;
+      const typing = setInterval(() => {
+        if (i < text.length) {
+          typingElement.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(typing);
+          setTimeout(callback, 1000);
+        }
+      }, 100);
+    }
+
+    function loopTyping() {
+      typeWriter(texts[textIndex], () => {
+        textIndex = (textIndex + 1) % texts.length;
+        setTimeout(loopTyping, 3000);
+      });
+    }
+
+    loopTyping();
+  </script>
+
+</body>
+</html>
+
